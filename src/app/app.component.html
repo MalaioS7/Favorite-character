@@ -1,0 +1,22 @@
+
+<section>
+    <header>
+      <h1 style="text-align: center; font-size: 32px; font-weight: bold;">{{ title | uppercase }}</h1>
+      <br><br>
+      <p style="font-size: 20px; font-weight: 400; display: inline-block;">{{ tent | uppercase }} : <strong>{{ valor }}</strong></p>
+      <button (click)="ChamarDica()" style="display: inline-block">{{ dic | titlecase }} - {{ qtd }}/12</button><br><br>
+      <button (click)="Desistir()" style="font-size: 15px;">{{ desist | uppercase }}</button>
+
+      <div alt="asa noturna" style.filter="brightness({{opacidadeImagem}})"></div>
+    </header>
+
+    <input type="text" placeholder="Digite um heroi" style="text-align: center;" [(ngModel)]="heroi">
+
+    <div *ngIf="(new_dicas.length > 0)" style="font-style: italic;">{{ new_dicas }}</div>
+
+    <ul>
+      <li *ngFor="let heroi of herois.reverse()">{{ heroi | titlecase }}
+        <img [src]="heroi.toLowerCase() == resposta || heroi.toLowerCase() == resposta2 || heroi.toLowerCase() == resposta3 || heroi.toLowerCase() == resposta4 || heroi.toLowerCase() == resposta5 ? '../assets/acerto.svg' : '../assets/errado.svg'">
+      </li>
+    </ul>
+  </section>
